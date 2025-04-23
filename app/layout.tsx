@@ -3,16 +3,13 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/navbar/navbar";
 import ClientOnly from "./components/ClientOnly";
-import Modal from "./components/modals/Modal"
+// import Modal from "./components/modals/Modal"
 import RegisterModal from "./components/modals/RegisterModal";
 import ToasterProvider from "./providers/ToasterProvider";
 import getCurrentUser from "./actions/getCurrentUser";
 
-
 import LoginModal from "./components/modals/LoginModal";
 import RentModal from "./components/modals/RentModal";
-
-
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -35,20 +32,20 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const currentUser = await getCurrentUser();
-  
+
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <ClientOnly>
-          <ToasterProvider/>
-          <RegisterModal/>
-          <RentModal/>
-          <LoginModal/>
+          <ToasterProvider />
+          <RentModal />
+          <LoginModal />
+          <RegisterModal />
           <Navbar currentUser={currentUser} />
         </ClientOnly>
-        {children}
+        <div className="pb-20 pt-28">{children}</div>
       </body>
     </html>
   );
