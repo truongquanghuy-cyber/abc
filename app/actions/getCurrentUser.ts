@@ -28,9 +28,11 @@ export default async function getCurrentUser () {
         return {
             ...currentUser,
             createdAt: currentUser.createdAt.toISOString(),
-            updateAt: currentUser.updatedAt.toISOString(),
+            updatedAt: currentUser.updatedAt.toISOString(), // ✅ sửa ở đây
             emailVerified: currentUser.emailVerified?.toISOString() || null,
-        };
+          };
+          
+
 
     } catch (error: unknown) {
         if (error instanceof Error) {

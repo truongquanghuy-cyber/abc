@@ -107,31 +107,31 @@ const RentModal = () => {
 
     setIsLoading(true);
 
-    axios
-    .post("/api/listings", data)
-    .then(() => {
-      toast.success("Listing Created!");
-    })
-    .catch((error) => {
-      console.error("Lỗi API:", error);
-      toast.error("Something went wrong!");
-    });
-
     // axios
-    //   .post("/api/listings", data)
-    //   .then(() => {
-    //     toast.success("Listing Created!");
-    //     router.refresh();
-    //     reset();
-    //     setStep(STEPS.CATEGORY);
-    //     rentModal.onClose();
-    //   })
-    //   .catch(() => {
-    //     toast.error("Something went wrong!");
-    //   })
-    //   .finally(() => {
-    //     setIsLoading(false);
-    //   });
+    // .post("/api/listings", data)
+    // .then(() => {
+    //   toast.success("Listing Created!");
+    // })
+    // .catch((error) => {
+    //   console.error("Lỗi API:", error);
+    //   toast.error("Something went wrong!");
+    // });
+
+    axios
+      .post("/api/listings", data)
+      .then(() => {
+        toast.success("Listing Created!");
+        router.refresh();
+        reset();
+        setStep(STEPS.CATEGORY);
+        rentModal.onClose();
+      })
+      .catch(() => {
+        toast.error("Something went wrong!");
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
   };
 
   const actionLabel = useMemo(() => {

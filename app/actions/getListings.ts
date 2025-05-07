@@ -1,3 +1,4 @@
+import { SafeUser } from './../types/index';
 import prisma from "@/app/libs/prismadb";
 
 
@@ -9,7 +10,12 @@ export default async function getListings() {
             }
         });
 
-        return listings;
+       const SafeListings = listings.map((listing) => ({
+        ...listing,
+        createdAt: listing.createdAt.toISOString(),
+       }));
+
+       return SafeListings;
 
     }catch (error: any) {
       throw new Error(error);

@@ -10,14 +10,7 @@ import bcrypt from "bcrypt";
 
 export const authOptions: AuthOptions = {
     adapter: PrismaAdapter( prisma ),
-    // adapter: TypeORMLegacyAdapter({
-    //     type: 'mysql',
-    //     username: process.env.DATABASE_USERNAME,
-    //     password: process.env.DATABASE_PASSWORD,
-    //     host: process.env.DATABASE_HOST,
-    //     database: process.env.DATABASE_DB,
-    //     synchronize: false
-    //   }),
+
     providers: [
         GithubProvider({
             clientId: process.env.GITHUB_ID as string,
