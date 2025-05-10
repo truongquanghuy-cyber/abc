@@ -2,7 +2,7 @@
 
 import { AiOutlineMenu } from "react-icons/ai";
 import Avatar from "../Avatar";
-import { use, useCallback, useState } from "react";
+import {useCallback, useState } from "react";
 import MenuItem from "./MenuItem";
 
 import useRegisterModal from "@/app/hooks/useRegisterModal";
@@ -104,7 +104,7 @@ const UserMenu: React.FC<UserMenuProps> = ({
             {currentUser ? (
                <>
                <MenuItem
-               onClick={() => router.push('/trips')}
+               onClick={() => router.push("/trips")}
                label="My trips"
                />
                <MenuItem
@@ -112,7 +112,7 @@ const UserMenu: React.FC<UserMenuProps> = ({
                label="My favorites"
                />
                 <MenuItem
-               onClick={() => {}}
+               onClick={() => router.push("/reservations")}
                label="My reservations"
                />
                 <MenuItem

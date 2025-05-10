@@ -1,4 +1,3 @@
-import { SafeUser } from './../types/index';
 import prisma from "@/app/libs/prismadb";
 
 

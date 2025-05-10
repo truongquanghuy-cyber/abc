@@ -4,9 +4,9 @@ import ClientOnly from "../components/ClientOnly";
 import getCurrentUser from "../actions/getCurrentUser";
 import getReservations from "../actions/getReservation";
 
-import TripsClient from "./TripsClient";
+import ReservationsClient from "./ReservationsClient";
 
-const TripsPage = async () => {
+const ReservationsPage = async () => {
     const currentUser = await getCurrentUser();
 
     if(!currentUser) {
@@ -18,30 +18,28 @@ const TripsPage = async () => {
                 /> 
             </ClientOnly>
         )
-    }
+    };
 
-    const reservations = await getReservations({userId: currentUser.id});
-
+    const reservations = await getReservations({authorId: currentUser.id});
     if(reservations.length === 0) {
         return(
             <ClientOnly>
                 <EmptyState 
-                    title="No trips found"
-                    subtitle="Looks like you havent reserved any trips."
+                    title="No reservation found"
+                    subtitle="Looks like you havent reservations on your properties."
                 />
             </ClientOnly>
         )
-    }
-
+    };
     return(
         <ClientOnly>
-            <TripsClient
+            <ReservationsClient
                 reservations={reservations}
                 currentUser={currentUser} // Chưa có currentUser, cần phải truyền vào sau
-            />
+            />    
         </ClientOnly>
     )
-
 };
 
-export default TripsPage;
+export default ReservationsPage;
+
