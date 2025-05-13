@@ -87,7 +87,8 @@
                             <Image
                                 fill
                                 alt="Listing"
-                                src={data.imageSrc}
+                                // src={data.imageSrc}
+                                 src={data.imageSrc || "/placeholder.svg"}
                                 className="
                                     object-cover
                                     h-full

@@ -44,6 +44,7 @@ export async function DELETE(
     return NextResponse.error();
   }
   const {listingId} = params;
+  
   if (!listingId || typeof listingId !== "string"){
     throw new Error("Invalid ID");
   }
